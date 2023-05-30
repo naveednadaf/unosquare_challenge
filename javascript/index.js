@@ -13,12 +13,7 @@ app.use(urlencoded({ extended: true }));
 app.post("/games", gamesController.createGame);
 app.get("/games/:gameId", gamesController.getGame);
 app.post("/games/:gameId/guesses", gamesController.createGuess);
-
+app.delete("/games/:gameId", gamesController.deleteGame);
 app.listen(4567);
 
-app.get('/', (req, res) => {
-    const game = gamesController.createGame(req, res); // Invoke the createGame function
-    res.send(game); // Send the result of createGame as the response
-});
 
-  
